@@ -20,7 +20,7 @@ npm run develop
 1. Wait for two seconds while the `develop` script re-builds the app
 1. Reload your browser to see the updated content 
 
-Media assets can be added to [tree/master/html/opera](tree/master/html/opera). Video and audio files should be added with [git-lfs](https://git-lfs.github.com/).
+Media assets can be added to [html/opera](html/opera). Video and audio files should be added with [git-lfs](https://git-lfs.github.com/).
 
 ## YAML content spec
 
