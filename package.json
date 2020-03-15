@@ -1,0 +1,37 @@
+{
+  "name": "opera-timeline",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "develop": "npm run serve & npm run watch",
+    "watch": "nodemon -w src -e js,yaml,mjs --exec npm run build",
+    "link": "npm link ../d3-media-timeline",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "http-server -c-1 -a 127.0.0.1 -p 9090 html",
+    "build": "rm -f html/main.js html/main.min.js && rollup -c rollup.config.js",
+    "build-prod": "rm -f html/main.js html/main.min.js && rollup --configProd -c rollup.config.js",
+    "prepublishOnly": "npm run build && uglifyjs html/main.js -c -m -o html/main.min.js"
+  },
+  "author": "Charles Holbrow",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/plugin-transform-classes": "^7.8.6",
+    "@babel/preset-env": "^7.8.7",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@rollup/plugin-yaml": "^2.1.0",
+    "http-server": "^0.12.1",
+    "marked": "^0.8.0",
+    "nodemon": "^2.0.2",
+    "rollup": "^1.32.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-node-polyfills": "^0.2.1",
+    "tape": "4",
+    "uglify-es": "^3.3.9"
+  },
+  "dependencies": {
+    "d3-media-timeline": "0.0.3"
+  }
+}

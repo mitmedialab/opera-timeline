@@ -1,0 +1,115 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=0.8, minimum-scale=0.8">
+    <script src="./kefir.min.js"></script>
+    <style>
+      /* Overflow: hidden prevents scroll bars */
+      html, body { margin:10px; padding:0; overflow:hidden }
+      div#media-timeline, div#media-timeline svg {
+        position: absolute;
+        padding: 0 0;
+        top:0;
+        left:0;
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      div.popup {
+        position: absolute;
+        max-height: 600px;
+        border-style: solid;
+        border-width: 1px;
+        background-color: aliceblue;
+        overflow-y: auto;
+        padding: 0px;
+      }
+
+      /* Small devices */
+      @media only screen and (max-width: 950px) {
+        div.popup div {
+          max-width: 400px;
+        }
+      }
+      /* Larger devices */
+      @media only screen and (min-width: 950px) {
+        div.popup div {
+          max-width: 460px;
+        }
+      }
+
+      /* disable two finger scroll for page back / page forward */
+      html {
+        overscroll-behavior-x: contain;
+      }
+
+      div.detail img, div.detail video  {
+        width: 100%;
+      }
+      div.detail > :not(img):not(video) {
+        margin: 4px;
+      }
+      div.detail h1, div.detail h2, div.detail h3, div.detail h4, div.detail ul, div.detail ol, div.detail blockquote p {
+        margin: 2px;
+      }
+      /* The + sign is the "adjacent sibling selector."  This can be read as
+      "when a paragraph inside a popup follows a another paragraph, apply
+      padding to the top." The goal: space all paragraphs except the 1st. */
+      div.detail p + p { padding-top: 24px; }
+      div.detail p + blockquote, 
+      div.detail p + ul, 
+      div.detail blockquote + p, 
+      div.detail ul + p { padding-top: 10px; }
+
+      /* Slightly indent quotes */
+      div.detail blockquote { padding-left: 16px; }
+      body {
+        font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif; 
+      }
+      div.detail {
+        font-size: 20;
+      }
+
+      /* Style Axes */
+      g.events text {
+        font-size: 20;
+      }
+      path.domain, g.tick line {
+        stroke-width: 2px;
+        stroke-linecap: square;
+      }
+      /* style dates */
+      g.timeline-y-axis g.tick text {
+        font-size: 16;
+      }
+      g.timeline-event-axis g.tick text {
+        font-size: 12;
+      }
+      g.timeline-event-axis g.tick {
+        color: #464646;
+      }
+      text.playable:hover {
+        text-decoration: underline;
+      }
+
+      svg text {
+        -webkit-touch-callout: none; /* iOS Safari */
+          -webkit-user-select: none; /* Safari */
+           -khtml-user-select: none; /* Konqueror HTML */
+             -moz-user-select: none; /* Old versions of Firefox */
+              -ms-user-select: none; /* Internet Explorer/Edge */
+                  user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+      }
+      /* style the timeline title */
+      text.timeline-title {
+        font-size: 35;
+        font-weight: 300;
+        fill:#808080;
+      }
+    </style>
+  </head>
+  <body>
+    <div id='media-timeline'></div>
+  </body>
+  <script src='./main.js'></script>
+</html>
