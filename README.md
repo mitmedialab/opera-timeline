@@ -8,6 +8,7 @@ Requires a recent version of node.js that supports es6 module `import` and `expo
 
 ```bash
 git clone git@github.com:mitmedialab/opera-timeline.git
+cd opera-timeline
 npm install
 npm run develop
 ```
