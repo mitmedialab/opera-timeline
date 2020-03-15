@@ -2,6 +2,8 @@
 
 An interactive timeline visualization of projects related to the Opera of the Future at the MIT Media Lab. 
 
+[**See DEMO**](http://web.media.mit.edu/~holbrow/opera-timeline/) (more content coming eventually).
+
 ## Dev Dependencies 
 
 Requires a recent version of node.js that supports es6 module `import` and `export` syntax.
@@ -17,6 +19,8 @@ npm run develop
 1. Add an entry to src/opera.yaml
 1. Wait for two seconds while the `develop` script re-builds the app
 1. Reload your browser to see the updated content 
+
+Media assets can be added to [tree/master/html/opera](tree/master/html/opera). Video and audio files should be added with [git-lfs](https://git-lfs.github.com/).
 
 ## YAML content spec
 
@@ -60,3 +64,5 @@ Notes:
 - `p` is the *priority*, and should always be a number. When two events overlap
   on the timeline, if one has a higher priority, that event will be shown, and
   the overlapping event will be hidden.
+- `detail` contains a markdown formatted text that will be parsed into html
+  along with an image+audio or video.
