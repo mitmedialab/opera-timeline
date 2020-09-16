@@ -45,6 +45,10 @@
 
       div.detail img, div.detail video  {
         width: 100%;
+        border-width: 0 0 1px 0; /* a line at the bottom separates image from text */
+        box-sizing: border-box;
+        border-style: solid;
+        border-color: black;
       }
       div.detail > :not(img):not(video) {
         margin: 4px;
